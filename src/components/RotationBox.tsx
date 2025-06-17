@@ -30,7 +30,15 @@ function RotatingBox() {
 // 메인 앱 컴포넌트
 function App() {
   return (
-    <div style={{ width: "80vw", height: "70vh", background: "#e2e2e2", borderRadius: "10px" }}>
+    <div
+      style={{
+        width: "80vw",
+        height: "70vh",
+        background: "#ffffff",
+        border: "1px solid gray",
+        borderRadius: "10px",
+      }}
+    >
       <Canvas camera={{ position: [0, 0, 3] }}>
         {/* 3D 씬을 그릴 캔버스 */}
         <ambientLight intensity={0.5} /> {/* 주변광 */}
