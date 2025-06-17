@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Loader, Environment } from "@react-three/drei";
 import { Suspense } from "react";
-import * as THREE from "three";
+import type { MeshStandardMaterial } from "three";
 
 function Model() {
   // glb 파일 경로를 import.meta.url 기준으로 생성 (vite 환경에서 사용)
@@ -12,8 +12,7 @@ function Model() {
 
   // 옵션: 재질 속성 변경
   if (nodes.table_2 && "material" in nodes.table_2) {
-    const mat = nodes.table_2.material as THREE.MeshStandardMaterial;
-    mat.color.set("hotpink"); // 색상 변경
+    const mat = nodes.table_2.material as MeshStandardMaterial;
     mat.metalness = 1; // 금속성(1: 완전 금속)
     mat.roughness = 0.2; // 거칠기(0: 매끈, 1: 거칠)
   }
@@ -24,11 +23,18 @@ function Model() {
 
 export default function ProductViewer() {
   return (
-    <div style={{ width: "100%", height: "600px", position: "relative" }}>
-      <Canvas camera={{ position: [0, 0, 2] }}>
+    <div
+      style={{
+        width: "80vw",
+        height: "70vh",
+        background: "#91c8b9",
+        borderRadius: "10px",
+      }}
+    >
+      <Canvas camera={{ position: [2, 2, 4], fov: 50 }}>
         <Suspense fallback={null}>
           <ambientLight intensity={0.2} />
-          <directionalLight position={[2, 2, 2]} intensity={0.3} color="red" />
+          <directionalLight position={[2, 2, 2]} intensity={0.3} color="yellow" />
           {/* 환경맵(조명/반사/배경) city 프리셋 적용 */}
           <Environment preset="city" />
           {/* 3D 모델 컴포넌트 렌더링 */}
