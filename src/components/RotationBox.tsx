@@ -3,7 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
 import type { Mesh } from "three";
 
-function RotatingBox() {
+function Model() {
   const meshRef = useRef<Mesh>(null);
 
   // useFrame 훅: 매 프레임마다 이 함수가 실행됩니다.
@@ -28,7 +28,7 @@ function RotatingBox() {
 }
 
 // 메인 앱 컴포넌트
-function App() {
+function RotatingBox() {
   return (
     <div
       style={{
@@ -43,7 +43,7 @@ function App() {
         {/* 3D 씬을 그릴 캔버스 */}
         <ambientLight intensity={0.5} /> {/* 주변광 */}
         <directionalLight position={[1, 1, 1]} intensity={1} /> {/* 방향광 */}
-        <RotatingBox /> {/* 회전하는 상자를 씬에 추가 */}
+        <Model />
         <OrbitControls /> {/* 마우스로 씬 회전/확대 가능하게 함 */}
         <Environment preset="city" /> {/* 환경맵 추가 */}
       </Canvas>
@@ -51,4 +51,4 @@ function App() {
   );
 }
 
-export default App;
+export default RotatingBox;
