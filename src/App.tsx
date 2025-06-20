@@ -1,6 +1,7 @@
 import Table from "./components/models/Table";
 import RotationBox from "./components/models/RotationBox";
 import Iphone from "./components/models/Iphone";
+import Hand from "./components/models/Hand";
 import { useState } from "react";
 
 function App() {
@@ -51,10 +52,21 @@ function App() {
         >
           Rotation Box
         </button>
+        <button
+          onClick={() => setSelectedTab("hand")}
+          style={{
+            fontWeight: selectedTab === "hand" ? "bold" : "normal",
+            padding: "10px 20px",
+            fontSize: "1.2rem",
+          }}
+        >
+          Hand
+        </button>
       </div>
       {selectedTab === "iphone" && <Iphone />}
       {selectedTab === "table" && <Table />}
       {selectedTab === "box" && <RotationBox />}
+      {selectedTab === "hand" && <Hand />}
     </main>
   );
 }
