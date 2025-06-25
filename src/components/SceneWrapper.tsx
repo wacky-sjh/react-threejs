@@ -25,8 +25,8 @@ export default function SceneWrapper({
   return (
     <div
       style={{
-        width: "80vw",
-        height: "70vh",
+        width: "85vw",
+        height: "67vh",
         background: "#fff",
         border: "1px solid gray",
         borderRadius: "10px",
