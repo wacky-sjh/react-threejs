@@ -10,7 +10,6 @@ interface SceneWrapperProps {
   environment?: ReactNode; // 환경맵
   controls?: ReactNode; // 컨트롤
   showLoader?: boolean;
-  style?: React.CSSProperties;
 }
 
 export default function SceneWrapper({
@@ -20,19 +19,9 @@ export default function SceneWrapper({
   environment,
   controls,
   showLoader = true,
-  style = {},
 }: SceneWrapperProps) {
   return (
-    <div
-      style={{
-        width: "85vw",
-        height: "67vh",
-        background: "#fff",
-        border: "1px solid gray",
-        borderRadius: "10px",
-        ...style,
-      }}
-    >
+    <div className="w-[85vw] h-[67vh] bg-white border border-gray-300 rounded-lg">
       <Canvas camera={camera}>
         <Suspense fallback={null}>
           {lights}
